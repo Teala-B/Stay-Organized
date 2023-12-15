@@ -46,12 +46,27 @@ async function filterTodos() {
     let allTodos = await todoService.getTodosByUserId(selectedUserId);
     
         console.log(allTodos)
-        allTodos.forEach(displayRows)
+        allTodos.forEach(displayTodos)
     
 
 }
 
 
-function displayRows(todos) {
+function displayTodos(todo) {
     
+    // clone template html instead of building the card by hand
+    const card = todosTemplate.content.cloneNode(true)
+  
+    // set all values
+    card.getElementById("category-value").innerText = todo.category
+    card.getElementById("description-value").innerText = todo.description
+    card.getElementById("deadline-value").innerText = todo.deadline
+    card.getElementById("priority-value").innerText = todo.priority
+    card.getElementById("completed-value").innerText = todo.completed.toString()
+
+    todoContainer.appendChild(card)
+}
+
+function addNewClick() {
+    location.href = "/new-todo.html"
 }
