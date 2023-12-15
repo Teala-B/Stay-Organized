@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stay Organized</title>
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet"
@@ -32,14 +32,11 @@
                     <span class="visually-hidden">(current)</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">New To Do's</a>
-              </li>
             </ul>
           </div>
         </div>
     </nav>
-    <section>
+    <section class="ms-5">
         <form>
             <fieldset>
                 <div class="form-group w-50">
@@ -50,27 +47,33 @@
                 </div>
               </fieldset>
         </form>
+        <button class="btn btn-secondary" onclick="addNewClick()">Add New To-Do</button>
     </section>
-
     <main class="m-5 mt-5">
-      <table>
-        <thead>
-          <th>id</th>
-          <th>userId</th>
-          <th>category</th>
-          <th>description</th>
-          <th>deadline</th>
-          <th>priority</th>
-          <th>completed</th>
-        </thead>
-      </table>
+        <template id="todosTemplate">
+            <div class="card mt-2">
+            <h4 id="todos-header" class="card-header">To-Do's</h4>
+            <div class="card-body">
+                <div class="todoInfo">
+                <div>Category:</div>
+                <div class="category" id="category-value"></div>
+                <div>Description:</div>
+                <div class="description" id="description-value"></div>
+                <div>Deadline:</div>
+                <div class="deadline" id="deadline-value"></div>
+                <div>Priority:</div>
+                <div class="priority" id="priority-value"></div>
+                <div>Completed:</div>
+                <div class="completed" id="completed-value"></div>
+                </div>
+            </div>
+            </div>
+        </template>
+        <div id="todoContainer" class=""></div>
     </main>
-
-
     <script src="scripts\todos.js"></script>
     <script src="scripts/services/todos-service.js"></script>
     <script src="scripts/services/users-service.js"></script>
-    
     <script 
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
